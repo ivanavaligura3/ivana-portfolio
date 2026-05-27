@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portfolio | Ivana Valigura</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+
+    <body>
+        <header class="header">
+            <nav class="navBar">
+                <div class="container">
+                    <ul class="nav__list" id="navMenu">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <section class="hero" id="home">
+            <div class="container">
+                <h1>Hi, I'm Ivana</h1>
+                <h2>Frontend Developer & Web Designer</h2>
+                <p>
+                    I create modern, responsive websites and web aplications
+                    focused on clean design and user experience.
+                </p>
+
+                <a href="#projects" class="btn">View Projects</a>
+                <a href="#contact" class="btn">Contact Me</a>
+
+            </div>
+        </section>
+
+
+        <section class="about reveal" id="about">
+            <div class="container">
+                <div class="about-text">
+
+                    <h1>About Me</h1>
+                    <p>
+                        I am an Information systems student focused on frontend development,
+                        UI design and building practical web applications. 
+                    </p>
+                    <p>
+                        I enjoy creating modern websites that combine aesthetics,
+                        functionality and great user experience.
+                    </p>
+                </div>
+
+                <a href="./assets/Ivana-Valigura-CV.pdf" class="btn" download>Download CV</a>
+
+            </div>
+        </section>
+        
+        <section class="projects reveal" id="projects">
+            <div class="container">
+
+                <div class="projects__intro">
+                    <h2>Things I've Built</h2>
+                </div>
+
+                <div class="projects__grid">
+
+                <div class="project-card">
+                    <img src="./assets/bbs.png" alt="Beauty Booking System">
+                    <h2>Beauty Booking System</h2>
+                    <p>
+                        Modern web application for booking beauty treatments with appointment 
+                        scheduling, admin dashboard, and contact form integration.
+                    </p>
+                    <div class="project-tech">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                        <span>EmailJS</span>
+                        <span>Responsive Design</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="./assets/diplomski.PNG" alt="NutriPlan">
+                    <h2>Design and implementation web application for planning
+                        and managing grocery stock
+                    </h2>
+                    <p>
+                        Full-stack nutrition planning web application with recipe 
+                        management, calorie tracking, inventory control, and 
+                        automated shopping list generation.
+                    </p>
+                    <div class="project-tech">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                        <span>Node.js</span>
+                        <span>Express.js</span>
+                        <span>MySQL</span>
+                        <span>LocalStorage</span>
+                        <span>REST API</span>
+                        <span>Responsive Design</span>
+
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="./assets/centurion.png" alt="Centurion">
+                    <h2>Business Promotion Website</h2>
+                    <p>
+                        Designed and developed a conversion-focused website for 
+                        a local service business in the construction industry. The platform 
+                        was built to strengthen brand credibility, improve 
+                        local search visibility, and simplify customer communication through 
+                        direct contact actions and mobile-first UX.
+                    </p>
+                    <div class="project-tech">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>Next.js</span>
+                        <span>React</span>
+                        <span>TypeScript</span>
+                        <span>Tailwind CSS</span>
+                        <span>Mobile-first UI</span>
+                        <span>Local SEO Optimization</span>
+                        <span>WhatsApp Integration</span>
+                        <span>Vercel Deployment</span>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="skills reveal" id="skills">
+            <div class="container">
+                <div class="skills__intro">
+                    <h2>Skills & Technologies</h2>
+                    <p>
+                        Technologies and tools I use to create modern,
+                        responsive and user-friendly web experiences.
+                    </p>
+                </div>
+
+                <div class="skills__badges">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>Responsive Design</span>
+                    <span>Git</span>
+                    <span>GitHub</span>
+                    <span>Webflow</span>
+                    <span>EmailJS</span>
+                    <span>React</span>
+                    <span>Node.js</span>
+                    <span>MySQL</span>
+                </div>
+            </div>
+
+        </section>
+
+         <section class="contact reveal" id="contact">
+            <div class="container">
+
+                <div class="contact__intro">
+                <h1>Let's Work Together</h1>
+                    <p>
+                        Looking for a modern, responsive and professional website?
+                        Let's work together and build something your clients will love.
+                    </p>
+             </div>
+
+                <div class="contact__content">
+
+                <div class="contact__info">
+                    <h2>Get in Touch</h2>
+
+                    <p><strong>Email:</strong> ivanavaligura3@gmail.com</p>
+                    <p><strong>GitHub:</strong>
+                        <a href="https://github.com/ivanavaligura3" target="_blank">
+                             View Profile
+                        </a>
+                    </p>
+                </div>
+
+                <form class="contact__form">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name">
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email">
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6" placeholder="Enter your message"></textarea>
+
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+
+                </div>
+
+            </div>
+        </section>
+        <footer class="footer">
+            <div class="container">
+
+                <h2>Ivana Valigura</h2>
+                <p>Frontend Developer & Web Designer</p>
+
+                <p>Creating modern and user-friendly web experiences.</p>
+
+                <div class="footer__links">
+                    <a href="#">GitHub</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="mailto: ivanavaligura3@gmail.com">Email</a>
+                </div>
+
+                <p class="footer__copy">
+                    © 2026 All rights reserved.
+                </p>
+
+            </div>
+        </footer>
+
+        <script src="./csript.js"></script>
+
+    </body>
+</html>
