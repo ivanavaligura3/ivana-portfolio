@@ -1,37 +1,21 @@
-# Centurion Gradnja Website
+# Personal Portfolio
 
-Modern business promotion website developed for a local construction company specializing in ceramic installation, bathroom renovation and interior adaptations.
-
-## Overview
-
-The goal of this project was to create a professional online presence focused on:
-
-- improving brand credibility
-- presenting completed work
-- simplifying customer communication
-- increasing mobile accessibility
-- encouraging direct customer actions
-
-## Features
-
-- Responsive design
-- Smooth scrolling navigation
-- Hero section with call-to-action
-- Project gallery
-- WhatsApp integration
-- Direct call actions
-- Contact section
-- Mobile-first experience
+A modern portfolio website showcasing my frontend development projects, technical skills, and experience.
 
 ## Technologies
 
 - HTML
 - CSS
 - JavaScript
-- React
-- Next.js
-- TypeScript
-- Tailwind CSS
+
+## Features
+
+- Responsive design
+- About Me section
+- Projects showcase
+- Skills section
+- Contact form
+- Downloadable CV
 
 ## Author
 
