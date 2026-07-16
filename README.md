@@ -1,38 +1,43 @@
-# Centurion Gradnja Website
+# Personal Portfolio
 
-Modern business promotion website developed for a local construction company specializing in ceramic installation, bathroom renovation and interior adaptations.
+A modern portfolio website showcasing my frontend development projects, technical skills, and web design experience.
 
-## Overview
+## 🌐 Live Demo
 
-The goal of this project was to create a professional online presence focused on:
+https://ivana-valigura.netlify.app
 
-- improving brand credibility
-- presenting completed work
-- simplifying customer communication
-- increasing mobile accessibility
-- encouraging direct customer actions
-
-## Features
+## ✨ Features
 
 - Responsive design
-- Smooth scrolling navigation
-- Hero section with call-to-action
-- Project gallery
-- WhatsApp integration
-- Direct call actions
-- Contact section
-- Mobile-first experience
+- About Me section
+- Project showcase
+- Skills & Technologies section
+- Contact form
+- Downloadable CV
+- GitHub and LinkedIn links
 
-## Technologies
+## 🛠️ Technologies
 
-- HTML
-- CSS
+- HTML5
+- CSS3
 - JavaScript
-- React
-- Next.js
-- TypeScript
-- Tailwind CSS
+- Responsive Design
+- Git & GitHub
 
-## Author
+## 📂 Projects Included
 
-Ivana Valigura
+- **Beauty Booking System** – Appointment booking web application with EmailJS integration.
+- **NutriPlan** – Full-stack meal planning and inventory management application developed as my graduation project.
+- **Business Promotion Website** – Responsive website created for a local construction business.
+
+## 👩‍💻 About Me
+
+I am a final-year Information Systems student passionate about frontend development and web design. I enjoy creating clean, responsive, and user-friendly websites while continuously improving my technical skills.
+
+## 📧 Contact
+
+**Email:** ivanavaligura3@gmail.com
+
+**Portfolio:** https://ivana-valigura.netlify.app
+
+**GitHub:** https://github.com/ivanavaligura3
