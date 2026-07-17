@@ -48,6 +48,7 @@ form.addEventListener("submit", function(event){
 
 });
 
+
 // SCROLL REVEAL
 
 const revealElements = document.querySelectorAll(".reveal");
