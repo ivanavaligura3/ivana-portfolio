@@ -136,6 +136,14 @@ const galleries = {
         "./assets/centurion-about.png",
         "./assets/centurion-work.png",
         "./assets/centurion-pics.png"
+    ],
+
+    "school-gallery": [
+        "./assets/school-home.png",
+        "./assets/school-faq.png",
+        "./assets/school-lessons.png",
+        "./assets/school-programs.png",
+        "./assets/school-contact.png"
     ]
 };
 
