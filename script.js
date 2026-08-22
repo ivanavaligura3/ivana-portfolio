@@ -82,6 +82,17 @@ window.addEventListener("scroll", revealOnScroll);
 revealOnScroll();
 
 
+// HAMBURGER MENU
+
+const hamburger = document.querySelector(".hamburger");
+const navList = document.querySelector(".nav__list");
+
+hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("open");
+    navList.classList.toggle("open");
+});
+
+
 // ACTIVE NAVBAR LINKS
 
 const sections = document.querySelectorAll("section");
