@@ -1147,6 +1147,19 @@ section p {
     gap: 25px;
 }
 
+@media (max-width: 900px) {
+    .skills__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .skills__grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+}
+
 .skill-card {
     padding: 35px;
 
@@ -2097,6 +2110,11 @@ body.intro-active {
     section h2 {
         font-size: clamp(32px, 6vw, 44px);
     }
+
+    .contact__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+}
 }
 
 
@@ -2283,6 +2301,28 @@ body.intro-active {
         width: 100%;
         min-height: 50px;
         padding: 0 20px;
+    }
+
+    .contact__grid {
+    gap: 30px;
+}
+
+.contact__form {
+    width: 100%;
+}
+
+.contact__form input,
+.contact__form textarea {
+    width: 100%;
+    max-width: 100%;
+}
+
+.contact__info {
+    width: 100%;
+}
+
+.contact__form button {
+        width: 100%;
     }
 }
 
