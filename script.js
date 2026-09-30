@@ -1,133 +1,262 @@
-//EMAILJS
+const isHomePage =
+    window.location.pathname === "/" ||
+    window.location.pathname.endsWith("/index.html");
 
-(function(){
+const introAlreadyShown =
+    sessionStorage.getItem("portfolioIntroShown") === "true";
 
-emailjs.init({
-    publicKey:"mSbJfpSxD4Tjs4P-Z",
-});
+if (isHomePage && !introAlreadyShown) {
 
-})();
+    sessionStorage.setItem("portfolioIntroShown", "true");
 
+    document.body.classList.add("intro-active");
 
-const form = document.getElementById("contact-form");
+    const introScreen = document.createElement("div");
 
+    introScreen.className = "intro-screen";
 
-form.addEventListener("submit", function(event){
+    introScreen.innerHTML = `
+        <div class="intro__content">
 
-    event.preventDefault();
+            <div class="intro__initials">
+                IV
+            </div>
 
+            <div class="intro__name">
+                Ivana Valigura
+            </div>
 
-    emailjs.sendForm(
-        "portfolio",
-        "template_eyaaj1q",
-        this
-    )
-    .then(()=>{
+            <div class="intro__line"></div>
 
+            <div class="intro__subtitle">
+                · Web Developer ·
+            </div>
 
-    const message = document.querySelector(".form-message");
+        </div>
+    `;
 
-    message.textContent =
-    "✓ Message sent successfully! I'll get back to you soon.";
-
-    message.classList.add("show");
-
-        form.reset();
-    })
-
-    .catch((error)=>{
-
-    message.textContent =
-    "Something went wrong. Please try again.";
-
-    message.classList.add("show");
-
-    console.log(error);
-
-    });
-
-});
+    document.body.prepend(introScreen);
 
 
-// SCROLL REVEAL
+    // -----------------------------------------
+    // START OPENING
+    // -----------------------------------------
 
-const revealElements = document.querySelectorAll(".reveal");
+    window.addEventListener("load", () => {
 
-function revealOnScroll() {
+        setTimeout(() => {
 
-    revealElements.forEach((element) => {
+            introScreen.classList.add("is-opening");
 
-        const windowHeight = window.innerHeight;
-        const elementTop = element.getBoundingClientRect().top;
+            document.body.classList.add("intro-revealing");
 
-        if (elementTop < windowHeight - 100) {
+        }, 2800);
 
-            element.style.opacity = "1";
-            element.style.transform = "translateY(0)";
-            element.style.transition = "all 0.8s ease";
 
-        } else {
+        setTimeout(() => {
 
-            element.style.opacity = "0";
-            element.style.transform = "translateY(40px)";
+            introScreen.classList.add("is-hidden");
 
-        }
+            document.body.classList.remove("intro-active");
+
+            document.body.classList.remove("intro-revealing");
+
+        }, 5400);
 
     });
 
 }
 
-window.addEventListener("scroll", revealOnScroll);
+// =========================================
+// EMAILJS
+// =========================================
 
-revealOnScroll();
+(function () {
+
+    emailjs.init({
+        publicKey: "mSbJfpSxD4Tjs4P-Z",
+    });
+
+})();
 
 
+// =========================================
+// CONTACT FORM
+// =========================================
+
+const form = document.getElementById("contact-form");
+
+if (form) {
+
+    const message = document.querySelector(".form-message");
+
+    form.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+        emailjs.sendForm(
+            "portfolio",
+            "template_eyaaj1q",
+            this
+        )
+        .then(() => {
+
+            message.textContent =
+                "✓ Message sent successfully! I'll get back to you soon.";
+
+            message.classList.add("show");
+
+            form.reset();
+
+        })
+        .catch((error) => {
+
+            message.textContent =
+                "Something went wrong. Please try again.";
+
+            message.classList.add("show");
+
+            console.log(error);
+
+        });
+
+    });
+
+}
+
+
+// =========================================
+// SCROLL REVEAL
+// =========================================
+
+const revealElements = document.querySelectorAll(".reveal");
+
+const revealObserver = new IntersectionObserver(
+    (entries) => {
+
+        entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("revealed");
+
+                revealObserver.unobserve(entry.target);
+
+            }
+
+        });
+
+    },
+    {
+        threshold: 0.12,
+        rootMargin: "0px 0px -60px 0px"
+    }
+);
+
+
+revealElements.forEach((element) => {
+
+    revealObserver.observe(element);
+
+});
+
+
+// =========================================
+// STAGGER ANIMATION FOR CARDS
+// =========================================
+
+const animatedGroups = document.querySelectorAll(
+    ".approach-grid, .projects-grid, .skills-grid"
+);
+
+
+animatedGroups.forEach((group) => {
+
+    const items = group.children;
+
+    Array.from(items).forEach((item, index) => {
+
+        item.style.setProperty(
+            "--animation-delay",
+            `${index * 100}ms`
+        );
+
+        item.classList.add("stagger-item");
+
+    });
+
+});
+
+// =========================================
 // HAMBURGER MENU
+// =========================================
 
 const hamburger = document.querySelector(".hamburger");
 const navList = document.querySelector(".nav__list");
 
-hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("open");
-    navList.classList.toggle("open");
-});
+if (hamburger && navList) {
+
+    hamburger.addEventListener("click", () => {
+
+        hamburger.classList.toggle("open");
+        navList.classList.toggle("open");
+
+    });
+
+}
 
 
+// =========================================
 // ACTIVE NAVBAR LINKS
+// =========================================
 
-const sections = document.querySelectorAll("section");
+const sections = document.querySelectorAll("body > main > section");
 const navLinks = document.querySelectorAll(".nav__list a");
 
-window.addEventListener("scroll", () => {
+if (sections.length && navLinks.length) {
 
-    let current = "";
+    window.addEventListener("scroll", () => {
 
-    sections.forEach(section => {
+        let current = "";
 
-        const sectionTop = section.offsetTop;
+        sections.forEach(section => {
 
-        if(window.scrollY >= sectionTop - 150){
-            current = section.getAttribute("id");
-        }
+            const sectionTop = section.offsetTop;
+
+            if (window.scrollY >= sectionTop - 150) {
+
+                current = section.getAttribute("id");
+
+            }
+
+        });
+
+        navLinks.forEach(link => {
+
+            link.classList.remove("active");
+
+            if (
+                current &&
+                link.getAttribute("href") === `#${current}`
+            ) {
+
+                link.classList.add("active");
+
+            }
+
+        });
 
     });
 
-    navLinks.forEach(link => {
-
-        link.classList.remove("active");
-
-        if(link.getAttribute("href") === `#${current}`){
-            link.classList.add("active");
-        }
-
-    });
-
-});
+}
 
 
-// ================= PROJECT GALLERIES =================
+// =========================================
+// PROJECT GALLERIES
+// =========================================
 
 const galleries = {
+
     "bbs-gallery": [
         "./assets/bbs-home.png",
         "./assets/bbs-book.png",
@@ -157,6 +286,7 @@ const galleries = {
         "./assets/school-programs.png",
         "./assets/school-contact.png"
     ]
+
 };
 
 
@@ -175,7 +305,18 @@ document.querySelectorAll(".project-gallery").forEach(gallery => {
     const currentImage = gallery.querySelector(".current-image");
     const totalImages = gallery.querySelector(".total-images");
 
+    if (
+        !img ||
+        !prev ||
+        !next ||
+        !currentImage ||
+        !totalImages
+    ) {
+        return;
+    }
+
     totalImages.textContent = images.length;
+
 
     function render() {
 
@@ -189,28 +330,38 @@ document.querySelectorAll(".project-gallery").forEach(gallery => {
 
             img.classList.remove("change");
 
-        },180);
+        }, 180);
 
     }
+
+
+    // NEXT IMAGE
 
     next.addEventListener("click", () => {
 
         current++;
 
-        if(current >= images.length){
+        if (current >= images.length) {
+
             current = 0;
+
         }
 
         render();
 
     });
+
+
+    // PREVIOUS IMAGE
 
     prev.addEventListener("click", () => {
 
         current--;
 
-        if(current < 0){
+        if (current < 0) {
+
             current = images.length - 1;
+
         }
 
         render();
@@ -218,40 +369,46 @@ document.querySelectorAll(".project-gallery").forEach(gallery => {
     });
 
 
-    // ------------------------
+    // =========================================
     // SWIPE
-    // ------------------------
+    // =========================================
 
     let startX = 0;
 
-    img.addEventListener("touchstart",(e)=>{
+    img.addEventListener("touchstart", (event) => {
 
-        startX = e.touches[0].clientX;
+        startX = event.touches[0].clientX;
 
     });
 
-    img.addEventListener("touchend",(e)=>{
 
-        const endX = e.changedTouches[0].clientX;
+    img.addEventListener("touchend", (event) => {
+
+        const endX = event.changedTouches[0].clientX;
 
         const distance = startX - endX;
 
-        if(Math.abs(distance) < 40) return;
+        if (Math.abs(distance) < 40) return;
 
-        if(distance > 0){
+
+        if (distance > 0) {
 
             current++;
 
-            if(current >= images.length){
+            if (current >= images.length) {
+
                 current = 0;
+
             }
 
-        }else{
+        } else {
 
             current--;
 
-            if(current < 0){
+            if (current < 0) {
+
                 current = images.length - 1;
+
             }
 
         }
